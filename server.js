@@ -1,39 +1,55 @@
 const express = require('express');
 const app = express()
 const http = require('http');
-const Sequelize = require('sequelize');
+// const Sequelize = require('sequelize');
 const port = process.env.PORT || 3000;
 const server = http.createServer(app);
-const sequelize = require('./app/models/connection.js');
-const Employee = require('./app/models/employee.js');
-const EmployeeWorkInfo = require('./app/models/employeeWorkInfo.js');
+// const sequelize = require('./app/models/connection.js');
+const db = require('./models/index.js');
+// const EmployeeWorkInfo = require('./app/models/employeeWorkInfo.js');
 server.listen(port);
 
 
 app.use((req,res,next)=>{
-    const employee = new Employee({
-        employee_id :'234335353',
-        first_name :'Adams',
-        middle_name :'King',
-        last_name :'Contest',
-        date_of_birth :'2017-10-01',
-        last_modified :'12313131'
-    });
+    // const employeeWork = new db.EmployeeWorkInfo({
+    //     department :'OG',
+    //     position :'manager',
+    //     date_of_employment :'2017-10-07',
+    //     ogid :'5213',
+    //     employee_id :'5678',
+    //     email : 'ex@.com',
+    //     last_modified_by :'12313131',
+    //     role:true,
+    //     created_by: 'Ben Carson',
+    //     account_active:true,
+    //     site_location:'Outsource Global',
+    //     account_password:'34rwe3232dfdfd'
+    // });
+    // const employee = new db.EmployeeInfo({
+    //     employee_id :'3434',
+    //     first_name :'Adams',
+    //     middle_name :'King',
+    //     last_name :'Contest',
+    //     date_of_birth :'2017-10-01',
+    //     last_modified_by :'12313131'
+    // });
+    
+    // employeeWork.save()
+    // .then(()=>{
+    //     console.log("Record Created For ",employeeWork.department );
+    //     employee.save();
+    // })
+    // .catch(function(err) {
+    //     //console.log(err);
+    // });
 
-
-
-    const employeeWork = new EmployeeWorkInfo({
-        department :'OG',
-        position :'manager',
-        date_of_employment :'2017-10-07',
-        ogid :'1234567',
-        email : 'ex@.com',
-        last_modified :'12313131'
-    });
-
-    employee.save();
-    employeeWork.save();
-    res.json({
-        mesage:"How u dey Zamfara man ..."
+db.EmployeeWorkInfo.findAll({include:[{model: db.EmployeeInfo}] })
+    .then((employeeWork)=>{
+        res.json(employeeWork);
     })
+    .catch(function(err) {
+        console.log(err);
+    });
+   
+    
 })

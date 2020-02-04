@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const EmployeeInfo = sequelize.define('EmployeeInfo', {
-  employee_id: {
+    EmployeeWorkInfoEmployeeId: {
       allowNull: false,type: DataTypes.TEXT,
       references : {model : 'EmployeeWorkInfo', key: 'employee_id' }
     },

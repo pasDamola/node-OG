@@ -15,8 +15,8 @@ app.use((req,res,next)=>{
     //     department :'OG',
     //     position :'manager',
     //     date_of_employment :'2017-10-07',
-    //     ogid :'5213',
-    //     employee_id :'5678',
+    //     ogid :'2981',
+    //     employee_id :'2020',
     //     email : 'ex@.com',
     //     last_modified_by :'12313131',
     //     role:true,
@@ -26,7 +26,7 @@ app.use((req,res,next)=>{
     //     account_password:'34rwe3232dfdfd'
     // });
     // const employee = new db.EmployeeInfo({
-    //     employee_id :'3434',
+    //     EmployeeWorkInfoEmployeeId :'2020',
     //     first_name :'Adams',
     //     middle_name :'King',
     //     last_name :'Contest',

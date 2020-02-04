@@ -1,12 +1,9 @@
 const express = require('express');
 const app = express()
 const http = require('http');
-// const Sequelize = require('sequelize');
 const port = process.env.PORT || 3000;
 const server = http.createServer(app);
-// const sequelize = require('./app/models/connection.js');
 const db = require('./models/index.js');
-// const EmployeeWorkInfo = require('./app/models/employeeWorkInfo.js');
 server.listen(port);
 
 

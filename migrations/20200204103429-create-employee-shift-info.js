@@ -76,10 +76,6 @@ module.exports = {
       sunday_closing_time: {
         type: Sequelize.TIME
       },
-      last_modified_by: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -20,10 +20,6 @@ module.exports = {
         type: Sequelize.DECIMAL,
         allowNull: false
       },
-      last_modified_by: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
       employee_id: {
         allowNull: false,
         type: Sequelize.TEXT,
